@@ -1,26 +1,27 @@
-/**
- * Created by Jkail on 06/07/2016.
- */
+// Affiche des informations sur un événement clavier
+var code = [38,38,40,40,37,39,37,39,66,65,32]
+var i = 0
 
-document.addEventListener("keydown", function(e) {
-        var konami = "38,38,40,40,37,39,37,39,66,65";
-        var frappe = String.fromCharCode(e.charCode);
-        //var saisie = saisie + [frappe];
-        saisie.push(e.charCode);
-        var verification = saisie.indexOf(konami);
-        if (verification >= 0) {
-            //Code JS
-            window.location = "http://benoit-boutault.fr";
+function infosClavier(e) {
+    var frappe = e.keyCode;
+    if (i < 10)
+    {
+        if (frappe == code[i])
+        {
+            console.log('étape '+i);
+            i++;
         }
-    });
- /*
-if ( window.addEventListener ) {
-    var kkeys = [], konami = "38,38,40,40,37,39,37,39,66,65";
-    window.addEventListener("keydown", function (e) {
-            kkeys.push(e.keyCode);
-            if (kkeys.toString().indexOf(konami) >= 0)
-                window.location = "http://ejohn.org/apps/hero/";
-        },
-        true);
+        else
+        {
+            i=0;
+        }
+    }
+    else if (i = 10)
+    {
+        alert('konamicode activated');
+        i=0;
+    }
+
 }
-     */
+
+var saisie = document.addEventListener("keydown", infosClavier);
